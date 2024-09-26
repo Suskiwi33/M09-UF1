@@ -1,7 +1,7 @@
 public class Rot13{
 
-    public static final String abecedari = "abcdefghijklmnopqrstuvwxyzñ";
-    public static final String abecedarimajus = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑ";
+    public static final String abecedari = "abcdefghijklmnopqrstuvwxyzñàáèéíòóúäëïöü";
+    public static final String abecedarimajus = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑÀÁÈÉÍÒÓÚÄËÏÖÜ";
     public static String xifraRot13 (String cadena){
         
         String cifrat = "";
@@ -98,7 +98,7 @@ public class Rot13{
 
     public static void main (String[]args){
 
-        String prova = "Hola Como.Estas?";
+        String prova = "Höla Como.Estas?";
         String xifrat = xifraRot13(prova);
 
         System.out.println("La cadena es: " + prova);
