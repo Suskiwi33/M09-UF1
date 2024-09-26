@@ -108,7 +108,7 @@ public class RotX{
     public static void main (String[]args){
 
         String prova = "Höla Como.Estas?";
-        int desplaçament = 4;
+        int desplaçament = 4; // maxim 30
         String xifrat = xifraRotX(prova, desplaçament);
 
         System.out.println("La cadena es: " + prova);
