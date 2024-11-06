@@ -4,7 +4,28 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class XifradorMonoalfabetic{
+public class XifradorMonoalfabetic implements Xifrador{
+
+    
+
+    public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
+    if (clau != null) throw new ClauNoSuportada("Xifratxe monoalfabètic no suporta clau != null");
+
+    String result = xifraMonoAlfa(msg);
+
+    return new TextXifrat(result.getBytes());
+  }
+  public String desxifra (TextXifrat xifrat, String clau) throws ClauNoSuportada {
+    if (clau != null) throw new ClauNoSuportada("Xifratxe monoalfabètic no suporta clau != null");
+
+    String textXifrat = new String(xifrat.getBytes());
+
+    return desxifraMonoAlfa(textXifrat);
+  }
+
+
+
+
     static Character[] alfabetoCompleto = {
         'A', 'Á', 'À', 'Ä', 'Â', 'B', 'C', 'Ç', 'D', 'E', 'É', 'È', 'Ë', 'Ê', 'F', 'G', 'H', 'I', 'Í', 'Ì', 'Ï', 'Î',
         'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'Ó', 'Ò', 'Ö', 'Ô', 'P', 'Q', 'R', 'S', 'T', 'U', 'Ú', 'Ù', 'Ü', 'Û', 'V', 'W', 'X', 'Y', 'Z',

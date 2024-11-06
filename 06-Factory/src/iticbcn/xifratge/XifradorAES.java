@@ -5,7 +5,31 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class XifradorAES {
+
+public class XifradorAES implements Xifrador{
+    
+    public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
+        byte[] bytes;
+        try {
+          bytes = xifraAES(msg, clau);
+        } catch (Exception e) {
+          throw new RuntimeException("Error en el xifratge AES :"+e.getMessage());
+        }
+        
+        return new TextXifrat(bytes);
+      }
+    
+      public String desxifra (TextXifrat xifrat, String clau) throws ClauNoSuportada {
+    
+        try {
+          return desxifraAES(xifrat.getBytes(), clau);
+        }
+        catch (Exception e) {
+          throw new RuntimeException("Error en el desxifratge AES :"+e.getMessage());
+        }
+      }
+    
+    
     public static void main(String[] args) {
         String msgs[] = {"Lorem ipsum dicet",
         

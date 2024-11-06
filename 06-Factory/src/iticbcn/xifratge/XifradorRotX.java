@@ -1,11 +1,38 @@
 package iticbcn.xifratge;
 public class XifradorRotX implements Xifrador{
 
+    public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
+        int rot;
+        try {
+          rot = Integer.parseInt(clau);
+    
+          if (rot < 0 || rot > 40 ) throw new Exception();
+        } catch (Exception e) {
+          throw new ClauNoSuportada("Clau de RotX ha de ser un sencer de 0 a 40");
+        }
+        String result = xifraRotX(clau, rot);
+    
+        return new TextXifrat(result.getBytes());
+      }
+      public String desxifra (TextXifrat xifrat, String clau) throws ClauNoSuportada {
+        int rot;
+        try {
+          rot = Integer.parseInt(clau);
+    
+          if (rot < 0 || rot > 40 ) throw new Exception();
+        } catch (Exception e) {
+          throw new ClauNoSuportada("Clau de RotX ha de ser un sencer de 0 a 40");
+        }
+    
+        String textXifrat = new String(xifrat.getBytes());
+    
+        return desxifraRotX(textXifrat, rot);
+      }
+
+
     public static final String abecedari = "abcdefghijklmnopqrstuvwxyzñàáèéíòóúäëïöü";
     public static final String abecedarimajus = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑÀÁÈÉÍÒÓÚÄËÏÖÜ";
 
-    public TextXifrat xifra (String kkk, String kkks){return null;}
-    public String desxifra (TextXifrat jj, String clau){return null;}
     
     public static String xifraRotX (String cadena, int desplaçament){
         

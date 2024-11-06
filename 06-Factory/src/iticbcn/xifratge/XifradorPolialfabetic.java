@@ -5,7 +5,27 @@ import java.util.List;
 import java.util.Random;
 
 
-public class XifradorPolialfabetic {
+public class XifradorPolialfabetic implements Xifrador{
+
+
+        public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
+            int password = Integer.parseInt(clau);
+        
+            initRandom(password);
+            String result = xifraPoliAlfa(msg);
+        
+            return new TextXifrat(result.getBytes());
+        }
+        public String desxifra (TextXifrat xifrat, String clau) throws ClauNoSuportada {
+            int password = Integer.parseInt(clau);
+        
+            initRandom(password);
+            String textXifrat = new String(xifrat.getBytes());
+            String result = desxifraPoliAlfa(textXifrat);
+        
+            return result;
+        }
+
 
     private static final int seed = 24543;
     private static final char[] ALFABETO_COMPLETO = "AÁÀÄÂBCÇDÉÈËÊFGHIÍÌÏÎJKLMNÑÓÒÖÔPQRSTUÚÙÜÛVWXYZ".toCharArray();
